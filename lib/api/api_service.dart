@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
+import 'package:news_app_bloc/api/api_constants.dart';
 import 'package:news_app_bloc/models/news_model.dart';
 
 class ApiServices {
@@ -10,7 +11,7 @@ class ApiServices {
 
   Future<List<News>> getNewsFromServer() async {
     String url =
-        "https://newsapi.org/v2/everything?q=bitcoin&apiKey=97a7829eb0ea466eb24be817ccbcd5ba";
+        "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${ApiConstants.apiKey}";
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
