@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_bloc/bloc/data_bloc/data_bloc_bloc.dart';
+import 'package:news_app_bloc/utils/colors.dart';
 import 'package:news_app_bloc/utils/constants.dart';
+import 'package:news_app_bloc/views/detail/screen_details.dart';
 import 'package:news_app_bloc/views/home/widgets/news_main_card_widget.dart';
 import 'package:news_app_bloc/views/home/widgets/news_tile_widget.dart';
 
@@ -17,7 +19,7 @@ class ScreenHome extends StatelessWidget {
           titleSpacing: 8,
           title: const Text(
             'News',
-            style: TextStyle(fontSize: 25, color: Colors.black),
+            style: TextStyle(fontSize: 25, color: fontColorBlack),
           ),
         ),
         body: RefreshIndicator(
@@ -36,11 +38,27 @@ class ScreenHome extends StatelessWidget {
                 itemCount: state.newsFromApi.length,
                 itemBuilder: (context, index) {
                   return index == 0
-                      ? NewsMainCardWidget(
-                          news: state.newsFromApi[0],
+                      ? InkWell(
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ScreenDetails(
+                                    news: state.newsFromApi[index]),
+                              )),
+                          child: NewsMainCardWidget(
+                            news: state.newsFromApi[0],
+                          ),
                         )
-                      : NewsTileWidget(
-                          news: state.newsFromApi[index],
+                      : InkWell(
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ScreenDetails(
+                                    news: state.newsFromApi[index]),
+                              )),
+                          child: NewsTileWidget(
+                            news: state.newsFromApi[index],
+                          ),
                         );
                 },
                 separatorBuilder: (context, index) => kheight10,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app_bloc/bloc/data_bloc/data_bloc_bloc.dart';
 import 'package:news_app_bloc/views/home/home_screen.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Karma News',
       theme: ThemeData(
+          fontFamily: GoogleFonts.montserrat().fontFamily,
           appBarTheme: const AppBarTheme(color: Colors.white, elevation: 0)),
       home: const ScreenHome(),
     );

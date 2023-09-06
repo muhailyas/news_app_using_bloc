@@ -46,7 +46,7 @@ class NewsTileWidget extends StatelessWidget {
           kwidth10,
           Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: borderRadius10,
                 image: DecorationImage(
                     image: NetworkImage(news.urlToImage), fit: BoxFit.cover)),
             height: 90,

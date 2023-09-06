@@ -15,7 +15,7 @@ class NewsMainCardWidget extends StatelessWidget {
           height: 220,
           width: double.infinity,
           decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            borderRadius: borderRadius10,
             image: DecorationImage(
                 image: NetworkImage(news.urlToImage), fit: BoxFit.cover),
           ),
