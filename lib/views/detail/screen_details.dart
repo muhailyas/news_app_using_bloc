@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_bloc/controllers/redirection_controller.dart';
 import 'package:news_app_bloc/models/news_model.dart';
 import 'package:news_app_bloc/utils/colors.dart';
 import 'package:news_app_bloc/utils/constants.dart';
@@ -23,6 +24,7 @@ class ScreenDetails extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     news.title,
@@ -33,6 +35,16 @@ class ScreenDetails extends StatelessWidget {
                     news.description,
                     style: const TextStyle(color: fontColorBlack, fontSize: 20),
                     textAlign: TextAlign.justify,
+                  ),
+                  kheight10,
+                  InkWell(
+                    onTap: () {
+                      redirectingUrl(news.url);
+                    },
+                    child: const Text(
+                      "Tap for more ",
+                      style: TextStyle(color: Colors.blue, fontSize: 12),
+                    ),
                   )
                 ],
               ),
